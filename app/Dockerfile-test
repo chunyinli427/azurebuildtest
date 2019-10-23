@@ -1,0 +1,27 @@
+FROM node:8.16.0
+LABEL com.booker.maintainer="Booker Software"
+
+WORKDIR /myapp
+
+ENV BUILDENV="development"
+
+COPY ./docker/entrypoint-test.sh /entrypoint-test.sh
+
+RUN chmod +x /entrypoint-test.sh
+
+# RUN bower install --allow-root &&\
+#    npm install
+
+# RUN /entrypoint-test.sh
+
+
+
+# VOLUME ["/myapp"]
+# ENTRYPOINT ["/tini", "--"]
+# CMD ["/entrypoint-test.sh"]
+# ENTRYPOINT ["/entrypoint-test.sh"]
+
+# docker run -e FOO="hello world!" test
+# docker build -t test -f Dockerfile-test
+# docker run --rm -v $(pwd):/myapp -e ENVIRONMENT="production" test sh -c "/entrypoint-test.sh"
+# docker run --rm -v /Users/chunyin.li/projects/pos-dev-dist:/myapp/dist -v $(pwd):/myapp -e ENVIRONMENT="development" test sh -c "/entrypoint-test.sh"
